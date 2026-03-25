@@ -1,0 +1,113 @@
+:root {
+	--bg: #141414;
+	--bg-soft: #1b1b1b;
+	--text: #ffffff;
+	--text-muted: #808080;
+	--accent: #e50914;
+	--radius: 6px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	background: radial-gradient(circle at top, #222 0%, var(--bg) 45%);
+	color: var(--text);
+	font-family: "Iosevka Charon Mono", "Courier New", Courier, monospace;
+}
+
+header,
+main {
+	width: min(1100px, 92vw);
+	margin: 0 auto;
+}
+
+header {
+	padding-top: 3.5rem;
+	text-align: center;
+}
+
+#titulo-perfis {
+	margin: 0;
+	font-size: clamp(1.8rem, 2.5vw, 3rem);
+	font-weight: 500;
+	letter-spacing: 0.01em;
+}
+
+main {
+	padding: 2.25rem 0 3rem;
+}
+
+.profiles {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(3, minmax(160px, 1fr));
+	gap: 1.5rem;
+}
+
+.profile {
+	display: flex;
+	justify-content: center;
+}
+
+.profile figure {
+	margin: 0;
+	width: min(100%, 220px);
+	text-align: center;
+}
+
+.profile img {
+	width: 100%;
+	height: auto;
+	display: block;
+	border-radius: var(--radius);
+	border: 3px solid transparent;
+	background-color: var(--bg-soft);
+	transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.profile figcaption {
+	margin-top: 0.8rem;
+	font-size: 1.1rem;
+	color: var(--text-muted);
+	transition: color 220ms ease;
+}
+
+.profile:hover img,
+.profile:focus-within img {
+	transform: scale(1.05);
+	border-color: var(--text);
+	box-shadow: 0 14px 24px rgba(0, 0, 0, 0.35);
+}
+
+.profile:hover figcaption,
+.profile:focus-within figcaption {
+	color: var(--text);
+}
+
+@media (max-width: 900px) {
+	.profiles {
+		grid-template-columns: repeat(2, minmax(150px, 1fr));
+	}
+}
+
+@media (max-width: 580px) {
+	header {
+		padding-top: 2rem;
+	}
+
+	.profiles {
+		grid-template-columns: 1fr;
+		gap: 1.25rem;
+	}
+
+	.profile figure {
+		width: min(100%, 240px);
+	}
+}
+
