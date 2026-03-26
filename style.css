@@ -4,7 +4,7 @@
     --text: #ffffff;
     --text-muted: #808080;
     --accent: #e50914;
-    --radius: 6px;
+    --radius: 12px;
 }
 
 * {
@@ -17,17 +17,20 @@ body {
     background: radial-gradient(circle at top, #222 0%, var(--bg) 45%);
     color: var(--text);
     font-family: "Inter", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 header,
 main {
-    width: min(1100px, 92vw);
+    width: min(1200px, 94vw);
     margin: 0 auto;
 }
 
 header {
-    padding-top: 3.5rem;
     text-align: center;
+    margin-bottom: 2rem;
 }
 
 #titulo-perfis {
@@ -38,31 +41,34 @@ header {
 }
 
 main {
-    padding: 2.25rem 0 3rem;
+    padding: 0;
 }
 
 .profiles {
     margin: 0;
     padding: 0;
     list-style: none;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(160px, 1fr));
-    gap: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(1rem, 2vw, 2rem);
 }
 
 .profile {
     display: flex;
     justify-content: center;
+    width: clamp(90px, 14vw, 150px);
 }
 
 .profile figure {
     margin: 0;
-    width: min(100%, 220px);
+    width: 100%;
     text-align: center;
 }
 
 .profile img {
     width: 100%;
+    max-width: 100%;
     height: auto;
     display: block;
     border-radius: var(--radius);
@@ -90,24 +96,40 @@ main {
     color: var(--text);
 }
 
-@media (max-width: 900px) {
-    .profiles {
-        grid-template-columns: repeat(2, minmax(150px, 1fr));
+@media (max-width: 1024px) {
+    .profile {
+        width: clamp(110px, 25vw, 150px);
     }
 }
 
-@media (max-width: 580px) {
-    header {
-        padding-top: 2rem;
+@media (max-width: 760px) {
+    #titulo-perfis {
+        font-size: clamp(1.5rem, 6vw, 2.1rem);
     }
 
     .profiles {
-        grid-template-columns: 1fr;
-        gap: 1.25rem;
+        gap: 1.5rem;
+    }
+
+    .profile {
+        width: clamp(110px, 35vw, 150px);
     }
 
     .profile figure {
-        width: min(100%, 240px);
+        width: 100%;
     }
 }
 
+@media (max-width: 480px) {
+    .profiles {
+        gap: 1.2rem;
+    }
+
+    .profile {
+        width: clamp(100px, 40vw, 130px);
+    }
+
+    .profile figure {
+        width: 100%;
+    }
+}
