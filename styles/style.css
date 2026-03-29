@@ -127,6 +127,13 @@ main {
     width: clamp(90px, 14vw, 150px);
 }
 
+.profile a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+}
+
 .profile figure {
     margin: 0;
     width: 100%;
