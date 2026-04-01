@@ -1,4 +1,4 @@
-import { getYouTubeId, getRandomMatchScore, getRandomDuration, getRandomAgeBadge } from '../utils.js';
+import {getYouTubeId, getRandomMatchScore, getRandomDuration, getRandomAgeBadge} from '../utils.js';
 
 export function createCard(item) {
     const card = document.createElement('div');
@@ -9,11 +9,15 @@ export function createCard(item) {
 
     const img = document.createElement('img');
     img.src = item.img;
-    img.alt = `Movie cover`;
+    img.alt = `Capa do filme ${item.title || ''}`;
+    img.loading = 'lazy';
+    img.width = 300;
+    img.height = 168;
 
     const iframe = document.createElement('iframe');
-    iframe.frameBorder = "0";
+    iframe.style.border = "none";
     iframe.allow = "autoplay; encrypted-media";
+    iframe.title = `Trailer de ${item.title || ''}`;
 
     const videoId = getYouTubeId(item.youtube);
 
@@ -27,12 +31,12 @@ export function createCard(item) {
     details.innerHTML = `
         <div class="details-buttons">
             <div class="left-buttons">
-                <button class="btn-icon btn-play-icon"><i class="fas fa-play" style="margin-left:2px;"></i></button>
-                ${item.progress ? '<button class="btn-icon"><i class="fas fa-check"></i></button>' : '<button class="btn-icon"><i class="fas fa-plus"></i></button>'}
-                <button class="btn-icon"><i class="fas fa-thumbs-up"></i></button>
+                <button class="btn-icon btn-play-icon" aria-label="Reproduzir"><i class="fas fa-play" style="margin-left:2px;"></i></button>
+                ${item.progress ? '<button class="btn-icon" aria-label="Remover da lista"><i class="fas fa-check"></i></button>' : '<button class="btn-icon" aria-label="Adicionar à lista"><i class="fas fa-plus"></i></button>'}
+                <button class="btn-icon" aria-label="Classificar"><i class="fas fa-thumbs-up"></i></button>
             </div>
             <div class="right-buttons">
-                <button class="btn-icon"><i class="fas fa-chevron-down"></i></button>
+                <button class="btn-icon" aria-label="Mais informações"><i class="fas fa-chevron-down"></i></button>
             </div>
         </div>
         <div class="details-info">
@@ -64,7 +68,7 @@ export function createCard(item) {
     card.addEventListener('mouseenter', () => {
         const rect = card.getBoundingClientRect();
         const windowWidth = window.innerWidth;
-        
+
         if (rect.left < 100) {
             card.classList.add('origin-left');
         } else if (rect.right > windowWidth - 100) {
