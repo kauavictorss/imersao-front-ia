@@ -12,7 +12,7 @@ export const categories = [
             },
             {
                 img: "https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/34cc591f-ae1b-44ed-bf8a-c4bbef84d588/compose?aspectRatio=1.78&format=webp&width=1200",
-                progress: 95,
+                progress: 98,
                 youtube: "https://www.youtube.com/watch?v=lFzVJEksoDY"
             },
             {
@@ -22,7 +22,7 @@ export const categories = [
             },
             {
                 img: "https://preview.redd.it/who-do-you-think-is-the-best-written-kung-fu-panda-character-v0-jy0a4llnjk4e1.jpeg?width=640&crop=smart&auto=webp&s=b4c5bd71710b2905169b8cb043f7930b0e79ee97",
-                progress: 10,
+                progress: 2,
                 youtube: "https://www.youtube.com/watch?v=40IBUnOZoC4"
             },
         ]

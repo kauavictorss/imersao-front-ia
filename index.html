@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 <header>
@@ -16,55 +17,47 @@
 </header>
 
 <main>
-    <section aria-label="titulo-perfis">
-        <ul class="profiles">
-            <li class="profile">
-                <a href="catalogo/catalogo.html">
-                    <figure>
-                        <img src="assets/perfil-1.png"
-                             alt="Perfil do Davy">
-                        <figcaption>Davy</figcaption>
-                    </figure>
-                </a>
-            </li>
-            <li class="profile">
-                <a href="catalogo/catalogo.html">
-                    <figure>
-                        <img src="assets/perfil-2.png"
-                             alt="Perfil do Kauã">
-                        <figcaption>Kauã</figcaption>
-                    </figure>
-                </a>
-            </li>
-            <li class="profile">
-                <a href="catalogo/catalogo.html">
-                    <figure>
-                        <img src="assets/perfil-3.png"
-                             alt="Perfil da Gisele">
-                        <figcaption>Gisele</figcaption>
-                    </figure>
-                </a>
-            </li>
-            <li class="profile">
-                <a href="catalogo/catalogo.html">
-                    <figure>
-                        <img src="assets/perfil-4.png"
-                             alt="Perfil da Giovana">
-                        <figcaption>Giovana</figcaption>
-                    </figure>
-                </a>
-            </li>
-            <li class="profile">
-                <a href="catalogo/catalogo.html">
-                    <figure>
-                        <img src="assets/perfil-5.png"
-                             alt="Perfil do Douglas">
-                        <figcaption>Douglas</figcaption>
-                    </figure>
-                </a>
-            </li>
+    <section aria-label="perfis">
+        <ul id="profiles-list" class="profiles">
+            <!-- Gerado dinamicamente via JS -->
         </ul>
+        <div class="manage-button-container">
+            <button id="btn-manage" class="btn-secondary">Gerenciar perfis</button>
+        </div>
     </section>
+
+    <!-- Modal para Adicionar/Editar Perfil -->
+    <div id="profile-modal" class="modal">
+        <div class="modal-content">
+            <h2 id="modal-title">Editar perfil</h2>
+            <div class="modal-body">
+                <div class="profile-edit-header">
+                    <div class="profile-edit-preview">
+                        <img id="modal-profile-img" src="assets/perfil-1.png" alt="Preview">
+                    </div>
+                    <div class="image-selector">
+                        <p>Escolha um ícone para o seu perfil:</p>
+                        <div class="image-options">
+                            <img src="assets/perfil-1.png" class="img-option" data-img="assets/perfil-1.png">
+                            <img src="assets/perfil-2.png" class="img-option" data-img="assets/perfil-2.png">
+                            <img src="assets/perfil-3.png" class="img-option" data-img="assets/perfil-3.png">
+                            <img src="assets/perfil-4.png" class="img-option" data-img="assets/perfil-4.png">
+                            <img src="assets/perfil-5.png" class="img-option" data-img="assets/perfil-5.png">
+                            <img src="assets/perfil-6.png" class="img-option" data-img="assets/perfil-6.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-edit-info">
+                    <input type="text" id="modal-profile-name" placeholder="Nome do perfil">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btn-save-profile" class="btn-primary">Salvar</button>
+                <button id="btn-cancel-modal" class="btn-secondary">Cancelar</button>
+                <button id="btn-delete-profile" class="btn-danger" style="display: none;">Excluir</button>
+            </div>
+        </div>
+    </div>
 </main>
 <script src="scripts/index.js"></script>
 </body>
