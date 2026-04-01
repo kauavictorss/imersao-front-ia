@@ -10,7 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const profileIcon = document.querySelector('.profile-icon');
         
         if (kidsLink) kidsLink.textContent = nomePerfil;
-        if (profileIcon) profileIcon.src = imagemPerfil;
+        if (profileIcon) {
+            // Adjust path if it's relative and doesn't already go up a level
+            const adjustedPath = imagemPerfil.startsWith('assets/') ? `../${imagemPerfil}` : imagemPerfil;
+            profileIcon.src = adjustedPath;
+        }
     }
 
     const container = document.getElementById('main-content');
