@@ -79,4 +79,4 @@ C:\Projetos\imersao-front-ia\
 
 Projeto desenvolvido como parte da **Imersão Front-End com IA** da **[Alura](https://www.alura.com.br)**, com foco em tecnologias frontend modernas e produtividade com ferramentas de Inteligência Artificial.
 
-[![Certificado Alura](https://img.shields.io/badge/Certificado-ALura-000080?style=for-the-badge&logo=douban)]()
+[![Certificado Alura](https://img.shields.io/badge/Certificado-ALura-000080?style=for-the-badge&logo=douban)](https://cursos.alura.com.br/immersion/imersao-front-end-iii/user/kauavictor/certificate)
